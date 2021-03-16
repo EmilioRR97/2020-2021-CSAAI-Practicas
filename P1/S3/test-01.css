@@ -1,6 +1,6 @@
 body{
     /* background-color: lightgreen; */
-    color: blue; 
+    color: rgb(56, 56, 56); 
     background: rgb(191,191,191);
     background: linear-gradient(90deg, rgba(191,191,191,1) 0%, rgba(220,220,220,1) 50%, rgba(191,191,191,1) 100%);
  
