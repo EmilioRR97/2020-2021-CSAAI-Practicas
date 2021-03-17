@@ -1,7 +1,7 @@
 body{
     margin: 150px;
     color: rgb(56, 56, 56); 
-    background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(233, 233, 233) 50%, rgb(170, 170, 170) 100%);
+    background: linear-gradient(90deg, rgb(150, 150, 150) 0%, rgb(210, 210, 210) 20%, rgb(245, 245, 245) 50%, rgb(210, 210, 210) 80%, rgb(150, 150, 150) 100%);
 }
 
 .centro {
