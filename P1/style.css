@@ -1,0 +1,33 @@
+body{
+    margin: 150px;
+    color: rgb(56, 56, 56); 
+    background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(233, 233, 233) 50%, rgb(170, 170, 170) 100%);
+}
+
+.centro {
+    margin: auto;
+    width: 95%;
+    padding: 1px;
+}
+
+.derecha {
+    align-items: top;
+}
+
+div {
+    background-color: white;
+}
+
+.texto {
+    margin: 200px;
+}
+
+.titulo {
+    margin: 75px;
+}
+
+
+#titulo {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif, monospace;
+}
