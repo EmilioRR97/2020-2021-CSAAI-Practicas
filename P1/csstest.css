@@ -1,0 +1,65 @@
+body{
+    color: rgb(56, 56, 56); 
+    background: linear-gradient(90deg, rgb(150, 150, 150) 0%, rgb(210, 210, 210) 20%, rgb(245, 245, 245) 50%, rgb(210, 210, 210) 80%, rgb(150, 150, 150) 100%);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.3fr 2.3fr 1.2fr 0.3fr;
+    grid-template-rows: 0.9fr 1.1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". ppal lat ."
+      ". formacion lat ."
+      ". formacion lat .";
+  }
+  
+  .formacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    grid-area: formacion;
+    background-color: white;
+  }
+  
+  .lat {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3275fr 1.7fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      "fotoetc fotoetc fotoetc";
+    grid-area: lat;
+  }
+  
+  .fotoetc { 
+    grid-area: fotoetc;
+    background-color: orange; 
+  }
+  
+  .ppal {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr 1.1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      "titulo titulo titulo";
+    grid-area: ppal;
+  }
+  
+  .titulo {
+    grid-area: titulo;
+    background-color: white;
+  }
+  
+
+  #titulo {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif, monospace;
+}
