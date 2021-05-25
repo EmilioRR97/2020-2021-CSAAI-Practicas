@@ -1,9 +1,9 @@
-body{
+body{ /* Nada especial, el texto por defecto es gris oscuro y el fondo es un gradiente de grises/blanco */
     color: rgb(56, 56, 56); 
     background: linear-gradient(90deg, rgb(150, 150, 150) 0%, rgb(210, 210, 210) 20%, rgb(245, 245, 245) 50%, rgb(210, 210, 210) 80%, rgb(150, 150, 150) 100%);
-}
+} 
 
-.grid-container {
+.grid-container { /* Como decíamos en el HTML, hacemos uso de una tabla con 4 columnas y 3 filas principales, estableciendo el tamaño de estas y la posicion con sus respectivos nombres */
     display: grid;
     grid-template-columns: 0.3fr 2.3fr 1.2fr 0.3fr;
     grid-template-rows: 0.9fr 1.1fr 1fr;
@@ -14,61 +14,61 @@ body{
       ". formacion lat .";
   }
   
-  .formacion {
-    display: grid;
-    grid-template-columns: 0.3fr 1.7fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      "espacio titulo titulo"
-      "espacio titulo titulo";
-    grid-area: formacion;
-    background-color: white;
-  }
+.formacion { /* Dentro de formacion tenemos 2 clases distintas, como explicabamos antes, hemos dado un "espacio" para no tenerlo todo pegado al margen izquierdo, haciendo uso de una clase vacía que hemos llamado como tal */
+  display: grid;
+  grid-template-columns: 0.3fr 1.7fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "espacio titulo titulo"
+    "espacio titulo titulo";
+  grid-area: formacion;
+  background-color: white;
+}
   
-  .lat {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.3275fr 1.7fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      ". . ."
-      "fotoetc fotoetc fotoetc";
-    grid-area: lat;
-  }
+.lat { /* Aqui es donde hemos puesto la foto y la informacion extra, ajustando el margen para que quedara cuadrado con la columna anterior */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.3275fr 1.7fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . ."
+    "fotoetc fotoetc fotoetc";
+  grid-area: lat;
+}
   
-  .fotoetc { 
-    grid-area: fotoetc;
-    background-color: rgb(136, 136, 136); 
-  }
+.fotoetc {  /* Asignando la clase fotoetc para el lat y dando un color de fondo gris claro */
+  grid-area: fotoetc;
+  background-color: rgb(136, 136, 136); 
+}
   
-  .ppal {
-    display: grid;
-    grid-template-columns: 0.3fr 1.7fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      ". . ."
-      "espacio titulo titulo";
-    grid-area: ppal;
-  }
+.ppal { /* Lo mismo que lat pero para la zona ppal */
+  display: grid;
+  grid-template-columns: 0.3fr 1.7fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . ."
+    "espacio titulo titulo";
+  grid-area: ppal;
+}
   
-  .espacio {
-    grid-area: espacio;
-    background-color: white;
-  }
-  .titulo {
-    grid-area: titulo;
-    background-color: white;
-  }
-  
-
-  #titulo {
-    color: orange;
-    font-family: Arial, Helvetica, sans-serif, monospace;
+.espacio { /* La clase espacio, siempre va a estar vacía y tiene el fondo blanco para lo que hemos comentado anteriormente */
+  grid-area: espacio;
+  background-color: white;
 }
 
-#nombre {
+.titulo { /* Clase título, donde ponemos lo que dije previamente */
+  grid-area: titulo;
+  background-color: white;
+}
+  
+#titulo { /* ID de titulo para un encabezado en concreto */
+  color: orange;
+  font-family: Arial, Helvetica, sans-serif, monospace;
+}
+
+#nombre { /* ID de nombre para un parrafo en concreto */
     color: rgb(168, 168, 168);
     font-family: Arial, Helvetica, sans-serif, monospace;
     font-weight: bold;
@@ -76,7 +76,7 @@ body{
     text-align: center;
 }
 
-#carrera {
+#carrera { /* ID de carrera para un parrafo en concreto */
     color: rgb(212, 103, 0);
     font-family: Arial, Helvetica, sans-serif, monospace;
     font-weight: bold;
@@ -84,28 +84,30 @@ body{
     text-align: center;
 }
 
+/* A partir de aquí son todo clases que he asignado para dar formato a diferentes tipos de textos usados tanto en el bloque principal como en el lateral */
+
 .main {
-    color: rgb(49, 49, 49);
-    font-family: Arial, Helvetica, sans-serif, monospace;
-    font-weight: bold;
+  color: rgb(49, 49, 49);
+  font-family: Arial, Helvetica, sans-serif, monospace;
+  font-weight: bold;
   }
 
-  .main2 {
-    color: rgb(155, 155, 155);
-    font-family: Arial, Helvetica, sans-serif, monospace;
-    font-weight: bold;
-  }
+.main2 {
+  color: rgb(155, 155, 155);
+  font-family: Arial, Helvetica, sans-serif, monospace;
+  font-weight: bold;
+}
 
-  .main3 {
-    color: rgb(49, 49, 49);
-    font-family: Arial, Helvetica, sans-serif, monospace;
-    font-weight: bold;
-    text-align: center;
-  }
+.main3 {
+  color: rgb(49, 49, 49);
+  font-family: Arial, Helvetica, sans-serif, monospace;
+  font-weight: bold;
+  text-align: center;
+}
 
-  .main4 {
-    color: rgb(221, 221, 221);
-    font-family: Arial, Helvetica, sans-serif, monospace;
-    font-weight: bold;
-    text-align: center;
-  }
+.main4 {
+  color: rgb(221, 221, 221);
+  font-family: Arial, Helvetica, sans-serif, monospace;
+  font-weight: bold;
+  text-align: center;
+}
