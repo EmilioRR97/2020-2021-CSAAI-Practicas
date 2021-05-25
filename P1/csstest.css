@@ -16,12 +16,12 @@ body{
   
   .formacion {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 0.3fr 1.7fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      ". . ."
-      ". . .";
+      "espacio titulo titulo"
+      "espacio titulo titulo";
     grid-area: formacion;
     background-color: white;
   }
@@ -80,6 +80,18 @@ body{
     color: rgb(212, 103, 0);
     font-family: Arial, Helvetica, sans-serif, monospace;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 300%;
     text-align: center;
 }
+
+.main {
+    color: rgb(49, 49, 49);
+    font-family: Arial, Helvetica, sans-serif, monospace;
+    font-weight: bold;
+  }
+
+  .main2 {
+    color:  rgb(155, 155, 155);
+    font-family: Arial, Helvetica, sans-serif, monospace;
+    font-weight: bold;
+  }
