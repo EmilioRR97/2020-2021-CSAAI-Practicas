@@ -25,6 +25,7 @@ div {
 
 .espacio {
     margin: 75px;
+    overflow: hidden;
 }
 
 
