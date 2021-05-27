@@ -1,0 +1,33 @@
+body {
+    background-image: url(fondo.jpg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.75fr 1.5fr 0.75fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . . ."
+      ". Calculadora Calculadora ."
+      ". . . .";
+  }
+  
+  .Calculadora {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 0.5fr;
+    grid-template-rows: 0.5fr 1.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "Display Display Operaciones"
+      "Botones Botones Operaciones";
+    grid-area: Calculadora;
+    background-color: whitesmoke;
+  }
+  
+  .Operaciones { grid-area: Operaciones; }
+  
+  .Display { grid-area: Display; }
+  
+  .Botones { grid-area: Botones; }
+  
