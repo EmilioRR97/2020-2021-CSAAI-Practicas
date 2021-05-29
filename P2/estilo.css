@@ -19,7 +19,7 @@ body {
     grid-template-rows: 0.5fr 1.5fr;
     gap: 0px 0px;
     grid-template-areas:
-      "Display Display Operaciones"
+      "Display Display Display"
       "Botones Botones Operaciones";
     grid-area: Calculadora;
     background-color: whitesmoke;
