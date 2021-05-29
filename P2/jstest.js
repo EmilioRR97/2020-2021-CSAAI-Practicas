@@ -12,7 +12,8 @@ const ESTADO = {
     INIT: 0,
     OP1: 1,
     OPERATION: 2,
-    OP2: 3
+    OP2: 3,
+    DOT: false,
 }
  
  //-- Variable de estado de la calculadora
@@ -53,52 +54,27 @@ function digitos(ev)
     
 }
 
+dot.onclick = (ev) => {
+    if(ESTADO.DOT=true){
+      console.log("No se pueden poner 2 puntos seguidos");
+    }else{
+      display.innerHTML += ev.target.value;
+      ESTADO.DOT = true;
+    }
+  }
+  
 
-//-- Obtener una colección con todos los elementos
-//-- de la clase digito
-digitos = document.getElementsByClassName("digito")
+del.onclick = () => {
+    display.innerHTML = display.innerHTML.slice(0,-1);
+  }
 
-//-- Establecer la misma función de retrollamada
-//-- para todos los botones de tipo dígito
-for (let boton of digitos) {
-
-    //-- Se ejecuta cuando se pulsa un boton
-    //-- que es un dígito. Para que el código sea 
-    //-- mas legible la función de retrollamada se
-    //-- escribe como una función normal (digito)
-    boton.onclick = digito;
+equal.onclick = () => {
+    if(estado == ESTADO.OP2){
+        display.innerHTML = eval(display.innerHTML);
+        estado=ESTADO.OP1;
+    }   
 }
 
-//-------- Resto de funciones de retrollamada
-
-//-- Operación de sumar
-suma.onclick = (ev) => {
-
-    //-- Insertar simbolo de sumar
-    display.innerHTML += ev.target.value;
-
-    //-- ¡Ojo! Aquí se inserta el + siempre!
-    //-- Para que la calculadora funcione bien
-    //-- sólo se debe permitir insertar el operador
-    //-- en el estado OP1, y debe cambiar el estado
-    //-- a OPERATION (según el diagrama de estados)
-  
-}
-
-//-- Evaluar la expresion
-igual.onclick = () => {
-  
-    //-- Calcular la expresión y añadirla al display
-    display.innerHTML = eval(display.innerHTML);
-
-    //-- ¡Ojo! Aquí se hace siempre!
-    //-- Sólo se debe permitar que eso se haga
-    //-- si se está en el estado final (OP2)
-  
-}
-
-//-- Poner a cero la expresion
-//-- Y volver al estado inicial
 clear.onclick = () => {
   display.innerHTML = "0";
   estado = ESTADO.INIT;
