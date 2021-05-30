@@ -9,7 +9,7 @@ const ctx = canvas.getContext("2d");
 
 ctx.beginPath();
 
-    ctx.arc(100, 50, 10, 0, 2 * Math.PI);
+    ctx.arc(100, 50, 30, 0, 2 * Math.PI);
     ctx.strokeStyle = 'blue';
     ctx.lineWidth = 3;
     ctx.fillStyle = 'yellow';
