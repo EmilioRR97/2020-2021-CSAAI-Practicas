@@ -9,13 +9,13 @@ const ctx = canvas.getContext("2d");
 
 ctx.beginPath();
     //-- Línea horizontal
-    ctx.moveTo(10, 20);
-    ctx.lineTo(100, 20);
+    ctx.moveTo(10, 80);
+    ctx.lineTo(80, 50);
 
     //-- Línea horizontal y vertical, unidas
     ctx.moveTo(10, 80);
-    ctx.lineTo(150,80);
-    ctx.lineTo(150,20);
+    ctx.lineTo(100,80);
+    ctx.lineTo(80,50);
 
     ctx.strokeStyle = 'blue';
     //-- Cambiar el tamaño de la linea del trazo
