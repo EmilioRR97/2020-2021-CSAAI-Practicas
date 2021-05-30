@@ -16,10 +16,12 @@ ctx.beginPath();
   ctx.rect(5,5, 100, 50);
 
   //-- Color de relleno del rectángulo
-  ctx.fillStyle = 'blue';
+  ctx.fillStyle = 'yellow';
 
   //-- Mostrar el relleno
   ctx.fill();
+
+  ctx.lineWidth = 6;
 
   //-- Mostrar el trazo del rectángulo
   ctx.stroke();
