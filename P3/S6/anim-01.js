@@ -10,7 +10,8 @@ const ctx = canvas.getContext("2d");
 let x = 0;
 let y = 10;
 
-let velx = 1;
+let velx = 3;
+let vely = 1;
 
 function update() 
 {
@@ -20,7 +21,12 @@ function update()
     velx = -velx;
   }
 
+  if (y >= (canvas.height - 20) || y < 0) {
+    vely = -vely;
+  }
+
   x = x + velx;
+  y = y + vely;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
