@@ -2,16 +2,16 @@ console.log("Ejecutando JS...");
 
 const canvas = document.getElementById("canvas");
 
-canvas.width = 300;
-canvas.height = 100;
+canvas.width = 1000;
+canvas.height = 500;
 
 const ctx = canvas.getContext("2d");
 
 let x = 0;
 let y = 10;
 
-let velx = 3;
-let vely = 1;
+let velx = 8;
+let vely = 2;
 
 function update() 
 {
