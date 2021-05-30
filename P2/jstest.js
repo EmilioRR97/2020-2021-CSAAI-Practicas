@@ -6,67 +6,65 @@ equal = document.getElementById("equal")
 clear = document.getElementById("clear")
 del = document.getElementById("del")
 
-
-//-- Estados de la calculadora
 const ESTADO = {
     INIT: 0,
     OP1: 1,
     OPERATION: 2,
     OP2: 3,
     DOT: false,
-}
- 
- //-- Variable de estado de la calculadora
- //-- Al comenzar estamos en el estado incial
- let estado = ESTADO.INIT;   
+} 
 
- for (i=0; i<digito.length; i++){
-    digito[i].onclick = (ev)=> {
-      digito(ev.target.value);
+
+let estado = ESTADO.INIT;   
+
+let digitos = document.getElementsByClassName("digito");
+let operandos = document.getElementsByClassName("op");
+
+
+for (i=0; i<digitos.length; i++){
+    digitos[i].onclick = (ev) => {
+      numeros(ev.target.value);
     }
-  }
-//-- Función de retrollamada de los digitos
-function digitos(ev)
-{
-    //-- Se ha recibido un dígito
-    //-- Según en qué estado se encuentre la calculadora
-    //-- se hará una cosa u otra
+}
 
-    //-- Si es el primer dígito, no lo añadimos,
-    //-- sino que lo mostramos directamente en el display
-    if (estado == ESTADO.INIT) {
-
-        display.innerHTML = ev.target.value;
-
-        //-- Pasar al siguiente estado
+function numeros(ev) {
+    if(estado == ESTADO.INIT) {
+        display.innerHTML = ev;
         estado = ESTADO.OP1;
+    }
+    else {
+        display.innerHTML += ev;
+        if (estado == ESTADO.OPERATION) {
+            estado = ESTADO.OP2;
+            ESTADO.DOT = false;
+        }
+    }
+}
 
-    } else {
-       
-        //--En cualquier otro estado lo añadimos
-        display.innerHTML += ev.target.value;
-
-        //-- Y nos quedamos en el mismo estado
-        //-- Ojo! Este ejemplo sólo implementa el primer
-        //-- estado del diagrama. Habría que tener en 
-        //-- cuenta el resto... lo debes hacer en tu práctica
-    } 
-    
+for (i=0; i<operandos.length; i++){
+    operandos[i].onclick = (ev)=> {
+        if(estado == ESTADO.OP1){
+            display.innerHTML += ev.target.value;
+            estado = ESTADO.OPERATION;
+            ESTADO.DOT = true;
+        }
+    }
 }
 
 dot.onclick = (ev) => {
-    if(ESTADO.DOT=true){
-      console.log("No se pueden poner 2 puntos seguidos");
-    }else{
-      display.innerHTML += ev.target.value;
-      ESTADO.DOT = true;
+    if(ESTADO.DOT){
+       
+     console.log("Error")
     }
-  }
-  
+    else{
+        display.innerHTML += ev.target.value;
+        ESTADO.DOT = true;
+    }
+}
 
 del.onclick = () => {
     display.innerHTML = display.innerHTML.slice(0,-1);
-  }
+}
 
 equal.onclick = () => {
     if(estado == ESTADO.OP2){
@@ -78,4 +76,5 @@ equal.onclick = () => {
 clear.onclick = () => {
   display.innerHTML = "0";
   estado = ESTADO.INIT;
+  ESTADO.DOT = false;
 }
