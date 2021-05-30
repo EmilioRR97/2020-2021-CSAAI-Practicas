@@ -2,32 +2,44 @@ body {
     background-image: url(fondo.jpg);
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.75fr 1.5fr 0.75fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      ". . . ."
-      ". Calculadora Calculadora ."
-      ". . . .";
-  }
+.Calculadora {
+  padding-top: 20px;
+  padding-bottom: 23px;
+  background-color: rgb(145, 145, 145);
+  border-radius: 20px 20px 20px 20px;
+  border: 6px thick;
+  border-color: rgba(61, 61, 61);
+  text-align: center;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+}
   
-  .Calculadora {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 0.5fr;
-    grid-template-rows: 0.5fr 1.5fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      "Display Display Display"
-      "Botones Botones Operaciones";
-    grid-area: Calculadora;
-    background-color: whitesmoke;
-  }
+.Display { 
+  background-color: white;
+  text-align: right;
+  font-size: 30px;
+  width: 400px;
+  height: 90px;
+  border-radius: 20px 20px 20px 20px;
+  border: 6px ridge;
+  margin-left: auto;
+  margin-right: auto;
+}
   
-  .Operaciones { grid-area: Operaciones; }
+.Botones { 
+  text-align: center;
+}
   
-  .Display { grid-area: Display; }
-  
-  .Botones { grid-area: Botones; }
-  
+button{
+  background-color: rgba(87, 87, 90, 0.6);
+  color: black;
+  padding: 14px;
+  font-size: 16px;
+  margin: 5px 2px;
+  margin-left: 16px;
+  border-radius: 20px 20px 20px 20px;
+  border: 3px solid rgba(87, 87, 90, 0.6);
+  width: 75px;
+}
