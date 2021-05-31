@@ -1,5 +1,6 @@
 #imagenO {
     float: left;
+    text-align: center;
     margin-left: 100px;
     margin-right: auto;
     margin-top: 50px;
@@ -7,6 +8,7 @@
 
 #imagenM {
     float: right;
+    text-align: center;
     margin-left: auto;
     margin-right: 100px;
     margin-top: 50px;
@@ -14,9 +16,7 @@
 
 #deslizadores {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .center {
