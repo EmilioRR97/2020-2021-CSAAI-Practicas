@@ -122,6 +122,7 @@ reset.onclick = () => {
     range_valueB.innerHTML = deslizadorB.value;
 
     ctx.drawImage(img, 0,0);
+    estado = ESTADO.COLOR;
 }
 
 console.log("Fin...");
