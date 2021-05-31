@@ -7,7 +7,7 @@ body{
 } 
 
 .boton1{
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(45, 45, 45);
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -20,14 +20,14 @@ body{
 }
 
 .boton2{
-    background-color: rgb(44, 44, 44);
-    color: white;
+    background-color: rgb(70, 70, 70);
+    color: rgb(188, 245, 255);
     padding: 16px;
     font-size: 16px;
     margin: 5px 2px;
     margin-left: 16px;
-    border-radius: 20px 20px 20px 20px;
-    border: 3px solid rgb(173, 173, 173);
+    border-radius: 1px 1px 1px 1px;
+    border: 3px solid rgb(139, 139, 139);
     width: 150px;
     text-align: center;
 }
