@@ -6,7 +6,8 @@ const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
 const gris = document.getElementById('gris');
-const decolores = document.getElementById('decolores');
+const decolor = document.getElementById('decolor');
+const reset = document.getElementById('reset');
 
 
 const deslizadorR = document.getElementById('deslizadorR');
@@ -18,7 +19,13 @@ const range_valueR = document.getElementById('range_valueR');
 const range_valueG = document.getElementById('range_valueG');
 const range_valueB = document.getElementById('range_valueB');
 
-GRIS: false,
+const ESTADO = {
+    GRIS: 1,
+    COLOR: 0,
+}
+
+let estado = ESTADO.COLOR;
+
 
 img.onload = function () {
 
@@ -30,10 +37,13 @@ img.onload = function () {
   console.log("Imagen lista...");
 };
 
+
+
 function color() {
+    ctx.drawImage(img, 0,0);
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let data = imgData.data
-    ctx.drawImage(img, 0,0);
+
 
     range_valueR.innerHTML = deslizadorR.value;
     umbralR = deslizadorR.value
@@ -45,14 +55,16 @@ function color() {
     umbralB = deslizadorB.value
 
     for (let i = 0; i < data.length; i+=4) {
-        if (data[i] > umbralR)
-          data[i] = umbralR;
-        if (data[i+1] > umbralG)
-        data[i+1] = umbralG;
-        if (data[i+2] > umbralB)
-        data[i+2] = umbralB;
+        if (data[i] > umbralR){
+            data[i] = umbralR;
+        }
+        if (data[i+1] > umbralG){
+            data[i+1] = umbralG;
+        }
+        if (data[i+2] > umbralB){
+            data[i+2] = umbralB;
+        }
     }
-
   ctx.putImageData(imgData, 0, 0);
 }
 
@@ -68,26 +80,48 @@ function todogris() {
 
   ctx.putImageData(imgData, 0, 0);
 
+  estado = ESTADO.GRIS;
+
 }
 
-if (GRIS = false){
 
 deslizadorR.oninput = () => {
-    color();
+    if (estado == ESTADO.COLOR){
+        color();
+    }
 }
 
 deslizadorG.oninput = () => {
-    color();
+    if (estado == ESTADO.COLOR){
+        color();
+    }
 }
 
 deslizadorB.oninput = () => {
-    color();
-}
+    if (estado == ESTADO.COLOR){
+        color();
+    }
 }
 
 gris.onclick = () => {
     todogris();
-    GRIS = true
+}
+
+decolor.onclick = () => {
+    estado = ESTADO.COLOR;
+    color ();
+}
+
+reset.onclick = () => {
+    deslizadorR.value = 255;
+    deslizadorG.value = 255;
+    deslizadorB.value = 255;
+
+    range_valueR.innerHTML = deslizadorR.value;
+    range_valueG.innerHTML = deslizadorG.value;
+    range_valueB.innerHTML = deslizadorB.value;
+
+    ctx.drawImage(img, 0,0);
 }
 
 console.log("Fin...");
