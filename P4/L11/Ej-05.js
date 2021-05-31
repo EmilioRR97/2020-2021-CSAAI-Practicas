@@ -1,61 +1,113 @@
 console.log("Ejecutando JS....")
 
-//-- Obtener elementos del DOM
+
 const canvas = document.getElementById('canvas');
 const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
-//-- Acceso al deslizador
-const deslizador = document.getElementById('deslizador');
 
-//-- Valor del deslizador
-const range_value = document.getElementById('range_value');
+const deslizadorR = document.getElementById('deslizadorR');
+const deslizadorG = document.getElementById('deslizadorG');
+const deslizadorB = document.getElementById('deslizadorB');
 
-//-- Función de retrollamada de imagen cargada
-//-- La imagen no se carga instantaneamente, sino que
-//-- lleva un tiempo. Sólo podemos acceder a ella una vez
-//-- que esté totalmente cargada
+
+const range_valueR = document.getElementById('range_valueR');
+const range_valueG = document.getElementById('range_valueG');
+const range_valueB = document.getElementById('range_valueB');
+
+
 img.onload = function () {
 
-  //-- Se establece como tamaño del canvas el mismo
-  //-- que el de la imagen original
+    
   canvas.width = img.width;
   canvas.height = img.height;
 
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
+  
   ctx.drawImage(img, 0,0);
 
   console.log("Imagen lista...");
 };
 
 
-//-- Funcion de retrollamada del deslizador
-deslizador.oninput = () => {
-  //-- Mostrar el nuevo valor del deslizador
-  range_value.innerHTML = deslizador.value;
 
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
+deslizadorR.oninput = () => {
+    
+  range_valueR.innerHTML = deslizadorR.value;
+
+  
   ctx.drawImage(img, 0,0);
 
-  //-- Obtener la imagen del canvas en pixeles
+  
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-  //-- Obtener el array con todos los píxeles
+  
   let data = imgData.data
 
-  //-- Obtener el umbral de rojo del desliador
-  umbral = deslizador.value
+  
+  umbral = deslizadorR.value
 
-  //-- Filtrar la imagen según el nuevo umbral
+  
   for (let i = 0; i < data.length; i+=4) {
     if (data[i] > umbral)
       data[i] = umbral;
   }
 
-  //-- Poner la imagen modificada en el canvas
+  
   ctx.putImageData(imgData, 0, 0);
 }
+
+deslizadorG.oninput = () => {
+    
+    range_valueG.innerHTML = deslizadorG.value;
+  
+    
+    ctx.drawImage(img, 0,0);
+  
+    
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  
+    
+    let data = imgData.data
+  
+    
+    umbral = deslizadorG.value
+  
+    
+    for (let i = 1; i < data.length; i+=4) {
+      if (data[i] > umbral)
+        data[i] = umbral;
+    }
+  
+    
+    ctx.putImageData(imgData, 0, 0);
+  }
+
+  
+  deslizadorB.oninput = () => {
+    
+    range_valueB.innerHTML = deslizadorB.value;
+  
+    
+    ctx.drawImage(img, 0,0);
+  
+    
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  
+    
+    let data = imgData.data
+  
+    
+    umbral = deslizadorB.value
+  
+    
+    for (let i = 2; i < data.length; i+=4) {
+      if (data[i] > umbral)
+        data[i] = umbral;
+    }
+  
+    
+    ctx.putImageData(imgData, 0, 0);
+  }
+  
 
 console.log("Fin...");
