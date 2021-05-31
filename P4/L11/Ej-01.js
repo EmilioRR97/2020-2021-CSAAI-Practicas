@@ -50,7 +50,7 @@ img.onload = function () {
   //-- No se han hecho manipulaciones todavia
   ctx.drawImage(img, 0,0);
 
-  //-- Obtener la imagen del canvas en pixeles
+ //-- Obtener la imagen del canvas en pixeles
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
   //-- Obtener el array con todos los píxeles
