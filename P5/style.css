@@ -1,0 +1,33 @@
+body{
+    margin-top: 100px;
+    color: rgb(56, 56, 56); 
+    background: linear-gradient(90deg, rgb(30, 30, 30) 0%, rgb(70, 70, 70) 20%, rgb(120, 120, 120) 50%, rgb(70, 70, 70) 80%, rgb(30, 30, 30) 100%);
+    font-family: Arial, Helvetica, sans-serif, monospace;
+    text-align: center;
+} 
+
+.boton1{
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    margin: 5px 2px;
+    margin-left: 16px;
+    border-radius: 20px 20px 20px 20px;
+    border: 3px solid rgb(173, 173, 173);
+    width: 100px;
+    text-align: center;
+}
+
+.boton2{
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    margin: 5px 2px;
+    margin-left: 16px;
+    border-radius: 20px 20px 20px 20px;
+    border: 3px solid rgb(173, 173, 173);
+    width: 150px;
+    text-align: center;
+}
