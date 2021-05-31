@@ -56,16 +56,13 @@ img.onload = function () {
   //-- Obtener el array con todos los píxeles
   let data = imgData.data
 
+  for (let i = 0; i < data.length; i+=4) {
+    data[i] = 0; //-- Canal rojo a 0
+  }
 
-  let i = 200 + 50*canvas.width;
-
-  //-- Pixel rojo: canal rojo a tope. Resto de colores a 0
-  //-- La transparencia no se modifica
-  data[i*4] = 255;    //-- Canal Rojo
-  data[i*4 + 1] = 0;  //-- Canal Verde
-  data[i*4 + 2] = 0;  //-- Canal azul
 
   ctx.putImageData(imgData, 0, 0);
+  console.log("HOllaaaaa");
 };
 
 console.log("Fin...");
