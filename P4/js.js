@@ -69,13 +69,14 @@ function color() {
 }
 
 function todogris() {
+    ctx.drawImage(img, 0,0);
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let data = imgData.data
     ctx.drawImage(img, 0,0);
 
     for (let i = 0; i < data.length; i+=4) {
-        gr = (3*data[i] + 4*data[i+1]+ data[i+2])/8
-        data[i] = data[i+1] = data[i+2] = gr; 
+        (3*data[i] + 4*data[i+1]+ data[i+2])/8
+        data[i] = data[i+1] = data[i+2] 
       }
 
   ctx.putImageData(imgData, 0, 0);
@@ -104,16 +105,6 @@ deslizadorB.oninput = () => {
 }
 
 gris.onclick = () => {
-    deslizadorR.value = 255;
-    deslizadorG.value = 255;
-    deslizadorB.value = 255;
-
-    range_valueR.innerHTML = deslizadorR.value;
-    range_valueG.innerHTML = deslizadorG.value;
-    range_valueB.innerHTML = deslizadorB.value;
-    
-    ctx.drawImage(img, 0,0);
-
     todogris();
 }
 
