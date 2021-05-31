@@ -104,6 +104,16 @@ deslizadorB.oninput = () => {
 }
 
 gris.onclick = () => {
+    deslizadorR.value = 255;
+    deslizadorG.value = 255;
+    deslizadorB.value = 255;
+
+    range_valueR.innerHTML = deslizadorR.value;
+    range_valueG.innerHTML = deslizadorG.value;
+    range_valueB.innerHTML = deslizadorB.value;
+    
+    ctx.drawImage(img, 0,0);
+
     todogris();
 }
 
