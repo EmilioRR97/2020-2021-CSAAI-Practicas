@@ -56,18 +56,16 @@ img.onload = function () {
   //-- Obtener el array con todos los píxeles
   let data = imgData.data
 
-  //-- Obtener el numero total de elementos en el array
-  console.log("Tamaño de data: " + data.length)
 
-  //-- El número total de pixeles es la altura por la anchura
-  npixels = canvas.width * canvas.height
-  console.log("Anchura (en pixeles): " + canvas.width)
-  console.log("Altura (en pixeles): " + canvas.height)
-  console.log("Pixeles totales: " + npixels)
+  let i = 200 + 50*canvas.width;
 
-  //-- Puesto que cada pixel ocupa 4 bytes, el array de píxeles
-  //-- tiene un tamaño de 4 * numero de pixeles
-  console.log("Total de datos de la imagen: " + npixels * 4)
+  //-- Pixel rojo: canal rojo a tope. Resto de colores a 0
+  //-- La transparencia no se modifica
+  data[i*4] = 255;    //-- Canal Rojo
+  data[i*4 + 1] = 0;  //-- Canal Verde
+  data[i*4 + 2] = 0;  //-- Canal azul
+
+  ctx.putImageData(imgData, 0, 0);
 };
 
 console.log("Fin...");
