@@ -21,6 +21,8 @@ var alturaLadrillo = 15;
 var huecoLadrillos = 10;
 var marginTop = 10;
 var marginLeft = 8;
+var puntuacion = 0;
+var vidas = 3;
 document.addEventListener("keydown", pulsa, false);
 document.addEventListener("keyup", suelta, false);
 
@@ -71,9 +73,9 @@ function ladrillo() {
                 var ladrilloX = (c*(anchoLadrillo+huecoLadrillos))+marginLeft;
                 var ladrilloY = (f*(alturaLadrillo+huecoLadrillos))+marginTop;
                 ladrillos[c][f].x = ladrilloX;
-                ladrillos[c][f].y = ladrilloY;
+                ladrillos[c][f].y = ladrilloY + 30;
                 ctx.beginPath();
-                ctx.rect(ladrilloX, ladrilloY, anchoLadrillo, alturaLadrillo);
+                ctx.rect(ladrilloX, ladrilloY + 30, anchoLadrillo, alturaLadrillo);
                 ctx.fillStyle = "grey";
                 ctx.fill();
                 ctx.closePath();
@@ -85,23 +87,39 @@ function ladrillo() {
 function colision() {
     for(c=0; c<columnasLadrillos; c++) {
         for(f=0; f<filasLadrillos; f++) {
-            var b = bricks[c][f];
-            if(b.status == 1) {
+            var b = ladrillos[c][f];
+            if(b.estado == 1) {
                 if(x > b.x && x < b.x+anchoLadrillo && y > b.y && y < b.y+alturaLadrillo) {
                     vely = -vely;
-                    b.estadi = 0;
+                    b.estado = 0;
+                    puntuacion++;
+                    if(puntuacion == filasLadrillos*columnasLadrillos) {
+                        alert("HAS GANADO, ENHORABUENA!");
+                        document.location.reload();
+                    }
                 }
             }
         }
     }
 }
-
+function puntos() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("Puntos: "+puntuacion, 8, 20);
+}
+function vida() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
+}
 
 function dibuja (){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ladrillo();
     bola();
     Fbase();
+    puntos();
+    vida();
     colision();
 
     if (x >= (canvas.width - radio) || x <= radio) {
@@ -117,16 +135,26 @@ function dibuja (){
             }
         }
         else {
-            alert("HAS PERDIDO");
-            document.location.reload();
+            vidas--;
+            if(!vidas) {
+                alert("HASD PERDIDO");
+                document.location.reload();
+            }
+            else {
+                x = canvas.width/2;
+                y = canvas.height-30;
+                velx = 1;
+                vely = -2;
+                posicionBase = (canvas.width-paddleWidth)/2;
+            }
         }
     }
 
     if (pulsacionDerecha && posicionBase < canvas.width-anchoBase) {
-        posicionBase = posicionBase + 10;
+        posicionBase = posicionBase + 5;
     }
     else if (pulsacionIzquierda && posicionBase > 0) {
-        posicionBase = posicionBase - 10;
+        posicionBase = posicionBase - 5;
     }
 
     x = x + velx;
