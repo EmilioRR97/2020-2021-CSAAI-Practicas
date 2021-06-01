@@ -118,6 +118,11 @@ function vida() {
     ctx.fillStyle = "black";
     ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
 }
+function space() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText("Pulsa espacio para lanzar la bola", canvas.width/2-120, canvas.height/2);
+}
 
 function dibuja (){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -126,6 +131,9 @@ function dibuja (){
     Fbase();
     puntos();
     vida();
+    if (movBola == false){
+        space();
+    }
     colision();
 
 
@@ -136,7 +144,6 @@ function dibuja (){
          vely = -vely;
     }
     else if (y >= (canvas.height - radio)){
-        movBola = false;
         if(x > posicionBase && x < posicionBase + anchoBase) {
             if(y= y- alturaBase){
                 vely = -vely;
@@ -144,8 +151,10 @@ function dibuja (){
         }
         else {
             vidas--;
+            
+            movBola = false;
             if(!vidas) {
-                alert("HASD PERDIDO");
+                alert("HAS PERDIDO");
                 document.location.reload();
             }
             else {
