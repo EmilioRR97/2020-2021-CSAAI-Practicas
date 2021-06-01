@@ -35,8 +35,8 @@ for(c=0; c<columnasLadrillos; c++) {
     }
 }
 
-function start (e) { 
-    if (e.keyCode == "32") {
+window.onkeydown = (e) => {
+    if (e.key == ' ') {
         movBola = true;
     }
 }
@@ -135,10 +135,8 @@ function dibuja (){
     if (y <= radio) {
          vely = -vely;
     }
-
-  
-
     else if (y >= (canvas.height - radio)){
+        movBola = false;
         if(x > posicionBase && x < posicionBase + anchoBase) {
             if(y= y- alturaBase){
                 vely = -vely;
@@ -167,8 +165,10 @@ function dibuja (){
         posicionBase = posicionBase - 5;
     }
 
-    x = x + velx;
-    y = y + vely;
+    if (movBola == true){
+        x = x + velx;
+        y = y + vely;
+    }
 }
 
 setInterval(dibuja, 5)
