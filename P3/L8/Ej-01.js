@@ -14,6 +14,7 @@ let anchoBase = 80;
 let posicionBase = (canvas.width-anchoBase)/2;
 var pulsacionDerecha = false;
 var pulsacionIzquierda = false;
+var movBola = false;
 var filasLadrillos = 5;
 var columnasLadrillos = 9;
 var anchoLadrillo = 45;
@@ -34,6 +35,11 @@ for(c=0; c<columnasLadrillos; c++) {
     }
 }
 
+function start (e) { 
+    if (e.keyCode == "32") {
+        movBola = true;
+    }
+}
 function pulsa (e) { 
     if (e.keyCode == 39) {
         pulsacionDerecha = true;
@@ -122,12 +128,16 @@ function dibuja (){
     vida();
     colision();
 
+
     if (x >= (canvas.width - radio) || x <= radio) {
         velx = -velx;
     }
     if (y <= radio) {
-        vely = -vely;
+         vely = -vely;
     }
+
+  
+
     else if (y >= (canvas.height - radio)){
         if(x > posicionBase && x < posicionBase + anchoBase) {
             if(y= y- alturaBase){
