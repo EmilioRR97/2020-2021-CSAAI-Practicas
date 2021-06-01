@@ -1,54 +1,76 @@
-console.log("Ejecutando JS...");
-
 const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 canvas.width = 500;
 canvas.height = 750;
 
-const ctx = canvas.getContext("2d");
+let radio = 8;
+let x = canvas.width/2;
+let y = canvas.height-30;
+let velx = 1;
+let vely = -2;
+let alturaBase = 10;
+let anchoBase = 80;
+let posicionBase = (canvas.width-anchoBase)/2;
+var pulsacionDerecha = false;
+var pulsacionIzquierda = false;
 
-let x = 250;
-let y = 740;
+document.addEventListener("keydown", pulsa, false);
+document.addEventListener("keyup", suelta, false);
 
-let velx = 0.5;
-let vely = 1;
+function pulsa (e) { 
+    if (e.keyCode == 39) {
+        pulsacionDerecha = true;
+    }
+    else if (e.keyCode == 37) {
+        pulsacionIzquierda = true;
+    }
+}
+function suelta (e) { 
+    if (e.keyCode == 39) {
+        pulsacionDerecha = false;
+    }
+    else if (e.keyCode == 37) {
+        pulsacionIzquierda = false;
+    }
+}
 
-ctx.font = "25px Arial";
-ctx.fillStyle = 'black'
-ctx.fillText("Puntos", 10, 30);
+function bola() {
+    ctx.beginPath();    
+    ctx.arc(x, y, radio, 0, 2 * Math.PI);
+    ctx.fillStyle = 'black';
+    ctx.fill()
+    ctx.closePath();
+}
+function Fbase () {
+    ctx.beginPath();
+    ctx.rect(posicionBase, canvas.height-alturaBase, anchoBase, alturaBase);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.closePath();
+}
 
-ctx.font = "25px Arial";
-ctx.fillStyle = 'black'
-ctx.fillText("Vidas", 360, 30);
+function dibuja (){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bola();
+    Fbase();
 
-function update() {
-
-    console.log("test");
-
-    if (x >= (canvas.width - 7.5/2) || x < 7.5/2) {
+    if (x >= (canvas.width - radio) || x <= radio) {
         velx = -velx;
     }
-
-    if (y >= (canvas.height - 7.5/2) || y < 7.5/2) {
+    if (y >= (canvas.height - radio) || y <= radio) {
         vely = -vely;
+    }
+
+    if (pulsacionDerecha && posicionBase < canvas.width-anchoBase) {
+        posicionBase = posicionBase + 10;
+    }
+    else if (pulsacionIzquierda && posicionBase > 0) {
+        posicionBase = posicionBase - 10;
     }
 
     x = x + velx;
     y = y + vely;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    ctx.beginPath();    
-    ctx.arc(x, y, 7.5, 0, 2 * Math.PI);
-    ctx.strokeStyle = 'grey';
-    ctx.lineWidth = 3;
-    ctx.fillStyle = 'lightgrey';
-
-    ctx.stroke()
-    ctx.fill()
-    ctx.closePath();
-
-    requestAnimationFrame(update);
 }
 
-update();
+setInterval(dibuja, 1)
