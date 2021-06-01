@@ -162,7 +162,7 @@ function dibuja (){
                 y = canvas.height-30;
                 velx = 1;
                 vely = -2;
-                posicionBase = (canvas.width-paddleWidth)/2;
+                posicionBase = (canvas.width-anchoBase)/2;
             }
         }
     }
